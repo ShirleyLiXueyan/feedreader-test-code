@@ -34,6 +34,7 @@ $(function() {
         it('every URL is defined and not empty', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).not.toBe('');
+                expect(feed.url).toBeDefined();
             });
         });
 
@@ -45,6 +46,7 @@ $(function() {
         it('every name is defined and not empty', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).not.toBe('');
+                expect(feed.name).toBeDefined();
             });
          });
     });
@@ -97,9 +99,9 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         var content, content2;
-        beforeEach(function(done) {
+        beforeEach(function() {
             content = $('.feed').html();
-            loadFeed(1, function() {
+            loadFeed(1, function(done) {
                 content2 = $('.feed').html();
                 loadFeed(0, done);
             });
