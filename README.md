@@ -1,48 +1,44 @@
-# Project Overview
+#项目预览
+在这个项目中，你会得到一个基于 web 的用来读取 rss 源的应用。最开始的这个项目的开发者意识到了测试的价值，他们也已经把 Jasmine 包含在了项目之中，而且甚至已经开始写他们第一个测试用例。但是不幸的是，他们决定去创建一个他们自己的公司，所以我们现在拿到的是一个缺乏完整测试用例的应用，这样是你会参与到这个项目的原因。
 
-In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
+#项目目的
+测试是开发过程中一个很重要的部分，很多组织把一个标准的开发过程称之为测试驱动开发。意思就是开发人员在他们开始着手编写应用代码之前先写好测试用例。当然这个时候所有的测试用例都是通不过的，然后他们就开始编写应用代码使测试全部通过。
+
+不管你是在一个推崇测试驱动开发的组织，或者是一个编写测试只是为了防止未来的开发中出现与已有代码冲突的 bug 的团队工作，测试都是我们要掌握的一项重要技能。
+
+#我会学到什么
+你会学到怎么使用 Jasmine 来给已经写好的应用编写一定数量的测用例。这些测试用例既要测试深层次的商业逻辑，也要测试时间处理和 DOM 操作。
+
+#这对我的职业有何帮助？
+编写测试需要分析应用中诸如 html , css , javascript 之类的各个层面。当你换了团队工作或者加入到一个新的公司，这项技能尤其重要（译者注：指阅读新的项目代码的能力）
+长期编写测试会让你拥有不需要手动编写测试去测试所有的功能就能快速分析新的代码是否和已知代码冲突的能力。
+
+#我的任务列表：
+阅读文档，生成任务列表
+下载所需项目资源。
+在浏览器中检查应用程序的各项功能。
+浏览应用程序 HTML (./index.html)、CSS (./css/style.css) 和 JavaScript (./js/app.js)， 了解其作用方式。
+浏览 ./jasmine/spec/feedreader.js 中的 Jasmine spec 文件， 查看 Jasmine 文档。
+编辑 ./js/app.js 中的 allFeeds 变量，使提供的测试出错，然后观察 Jasmine 在应用程序中对该错误进行可视化处理的结果。
+将 allFeeds 变量返回至传递状态。
+编写测试对 allFeeds 对象中的每条反馈执行循环操作，并确保其具有定义的非空 URL。
+编写测试对 allFeeds 对象中的每条反馈执行循环操作，并确保其具有定义的非空名称。
+编写一个新测试套件，命名 "The menu"。
+编写测试以确保菜单 (menu) 元素在默认情况下处于隐藏状态。 并要求分析 HTML 和 CSS，以确定 菜单元素的隐藏/显示是如何实现的。
+编写测试，确保当点击菜单时， 菜单改变其可见性。测试应有两项期望：当点击时，菜单是否显示， 当再次点击时，菜单是否隐藏。
+编写测试套件并命名 "Initial Entries"。
+编写测试，确保在调用并执行 loadFeed 函数后， 在 .feed 容器中至少存在一个 .entry 元素。
+编写测试套件并命名 "New Feed Selection"。
+编写测试，确保每当 loadFeed 函数加载一条新反馈后， 内容会相应更改。
+测试不应依赖其他测试的结果。
+应使用回调函数确保在测试之前 加载反馈。
+实施针对未定义变量和越界数据访问的 错误处理。
+编写 README 文件，详细说明成功运行应用程序 所需的所有步骤。如果你添加了额外测试（针对优达学城测试覆盖），则需要提供相关文档，介绍这些未来功能 并说明测试目的。
+
+#如何使用
+在浏览器中打开文档中index.html文件
+在底部可以看见jasmine测试项目，以及通过情况
+在测试项的基础上自信的继续重构函数，增加更多新功能吧！
 
 
-## Why this Project?
 
-Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". This is when developers write tests first, before they ever start developing their application. All the tests initially fail and then they start writing application code to make these tests pass.
-
-Whether you work in an organization that uses test-driven development or in an organization that uses tests to make sure future feature development doesn't break existing features, it's an important skill to have!
-
-
-## What will I learn?
-
-You will learn how to use Jasmine to write a number of tests against a pre-existing application. These will test the underlying business logic of the application as well as the event handling and DOM manipulation.
-
-
-## How will this help my career?
-
-* Writing effective tests requires analyzing multiple aspects of an application including the HTML, CSS and JavaScript - an extremely important skill when changing teams or joining a new company.
-* Good tests give you the ability to quickly analyze whether new code breaks an existing feature within your codebase, without having to manually test all of the functionality.
-
-
-# How will I complete this project?
-
-Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
-
-1. Take the JavaScript Testing [course](https://www.udacity.com/course/ud549)
-2. Download the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).
-3. Review the functionality of the application within your browser.
-4. Explore the application's HTML (**./index.html**), CSS (**./css/style.css**) and JavaScript (**./js/app.js**) to gain an understanding of how it works.
-5. Explore the Jasmine spec file in **./jasmine/spec/feedreader.js** and review the [Jasmine documentation](http://jasmine.github.io).
-6. Edit the `allFeeds` variable in **./js/app.js** to make the provided test fail and see how Jasmine visualizes this failure in your application.
-7. Return the `allFeeds` variable to a passing state.
-8. Write a test that loops through each feed in the `allFeeds` object and ensures it has a URL defined and that the URL is not empty.
-9. Write a test that loops through each feed in the `allFeeds` object and ensures it has a name defined and that the name is not empty.
-10. Write a new test suite named `"The menu"`.
-11. Write a test that ensures the menu element is hidden by default. You'll have to analyze the HTML and the CSS to determine how we're performing the hiding/showing of the menu element.
-12. Write a test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display when clicked and does it hide when clicked again.
-13. Write a test suite named `"Initial Entries"`.
-14. Write a test that ensures when the `loadFeed` function is called and completes its work, there is at least a single `.entry` element within the `.feed` container.
-15. Write a test suite named `"New Feed Selection"`.
-16. Write a test that ensures when a new feed is loaded by the `loadFeed` function that the content actually changes.
-17. No test should be dependent on the results of another.
-18. Callbacks should be used to ensure that feeds are loaded before they are tested.
-19. Implement error handling for undefined variables and out-of-bound array access.
-20. When complete - all of your tests should pass. 
-21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
