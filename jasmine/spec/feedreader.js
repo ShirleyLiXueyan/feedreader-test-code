@@ -33,7 +33,7 @@ $(function() {
          */
         it('every URL is defined and not empty', function() {
             allFeeds.forEach(function(feed) {
-                expect(feed.url).not.toBeNull();
+                expect(feed.url).not.toBe('');
             });
         });
 
@@ -44,7 +44,7 @@ $(function() {
          */
         it('every name is defined and not empty', function() {
             allFeeds.forEach(function(feed) {
-                expect(feed.name).not.toBeNull();
+                expect(feed.name).not.toBe('');
             });
          });
     });
@@ -58,7 +58,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('menu is hidden by default', function() {
-            expect($('body').hasClass('menu-hidden')).toBeTruthy();
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -67,9 +67,9 @@ $(function() {
           */
         it('menu changes are visible when clicked menu icon', function() {
             $('.menu-icon-link').trigger('click');
-            expect($('body').hasClass('menu-hidden')).toBeFalsy();
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             $('.menu-icon-link').trigger('click');
-            expect($('body').hasClass('menu-hidden')).toBeTruthy();
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -78,9 +78,7 @@ $(function() {
     describe('Initial Entries', function() {
 
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -90,7 +88,7 @@ $(function() {
          */
         it('loadFeed() function works well', function(done) {
             var entry = $('.feed').find('.entry');
-            expect(entry.length).not.toBe(0);
+            expect(entry.length).toBeGreaterThan(0);
             done();
         });
     });
@@ -103,18 +101,15 @@ $(function() {
             content = $('.feed').html();
             loadFeed(1, function() {
                 content2 = $('.feed').html();
-                loadFeed(0, function() {
-                    done();
-                });
+                loadFeed(0, done);
             });
         });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('content changes when new feed is loaded', function(done) {
+        it('content changes when new feed is loaded', function() {
             expect(content).not.toBe(content2);
-            done();
         });
     });
 
