@@ -88,10 +88,9 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        it('loadFeed() function works well', function(done) {
+        it('loadFeed() function works well', function() {
             var entry = $('.feed').find('.entry');
             expect(entry.length).toBeGreaterThan(0);
-            done();
         });
     });
 
@@ -99,9 +98,9 @@ $(function() {
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         var content, content2;
-        beforeEach(function() {
+        beforeEach(function(done) {
             content = $('.feed').html();
-            loadFeed(1, function(done) {
+            loadFeed(1, function() {
                 content2 = $('.feed').html();
                 loadFeed(0, done);
             });
